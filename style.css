@@ -1,0 +1,156 @@
+*{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body{
+    background-color: #e7e7e7;
+    color: #e1e1e1;
+}
+
+.quiz{
+    width: 70%;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 5%;
+}
+
+.quiz-con{
+    padding: 5%;
+    box-shadow: 1px 1px 8px #2a2a2a;
+    background-color: #025e9b;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    border-bottom: 4px solid black;
+    height: 55vh;
+}
+
+.ques-time{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.question{
+    font-size: 1.4em;
+}
+
+.time{
+    font-size: 2em;
+}
+
+.choices{
+    font-size: 2.0em;
+}
+
+.choices>label{
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 1%;
+}
+
+#question1{
+    scale: 1.1;
+}
+
+.button{
+    align-self: flex-end;
+}
+
+.next{
+    color: #2b2b2b;
+    cursor: pointer;
+    font-size: 1.5em;
+    padding: 10px 20px;
+    border: none;
+    box-shadow: 2px 2px 2px #043556;
+}
+
+.next:active{
+    opacity: 0.8;
+}
+
+.next:hover{
+    box-shadow: none;
+    background-color: #d1d1d1;
+}
+
+.display{
+    display: none;
+}
+
+
+
+
+
+
+
+/* RESULT */
+.result{
+    width: 70%;
+    height: 600px;
+    margin: 0 auto;
+    position: relative;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    color: black;
+    display: none;
+}
+
+.greets{
+    font-size: 2.5em;
+}
+
+.border::after{
+    content: '';
+    height: 3px;
+    width: 70%;
+    background: #c7c7c7;
+    position: absolute;
+    left: 15%;
+    top: 18%;
+    /* opacity: 0.2; */
+}
+
+.res{
+    font-size: 2em;
+}
+
+.ques-res{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid black;
+    /* font-weight: lighter; */
+}
+
+.light{
+    font-weight: lighter; 
+}
+
+.score-con{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.score{
+    font-size: 2em;
+}
+
+.number{
+    font-size: 3em;
+    /* background-color: #025e9b; */
+    border: 3px solid #025e9b;
+    color: #025e9b;
+    border-radius: 100px;
+    padding: 35% 25%;
+    opacity: 0.8;
+    font-weight: bolder;
+}
+
