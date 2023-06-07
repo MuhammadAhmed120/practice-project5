@@ -1,5 +1,6 @@
-var question = [
-
+Swal.fire("Don't press any Key. Choose and click next")
+ 
+ var question = [
     {
         question: 'What does HTML stand for?',
         option1: 'Hyperlinks and Text Markup Language',
@@ -81,6 +82,7 @@ var question = [
         question: 'Inline elements are normally displayed without starting a new line.',
         option1: 'True',
         option2: 'False',
+        option3: 'Neutral',
         correctOption: "True"
     },
     {
@@ -88,7 +90,6 @@ var question = [
         option1: '<dl>',
         option2: '<ul>',
         option3: '<ol>',
-        option4: '<list>',
         correctOption: "<ol>"
     },
     {
@@ -96,7 +97,6 @@ var question = [
         option1: '<ol>',
         option2: '<list>',
         option3: '<ul>',
-        option4: '<dl>',
         correctOption: "<ul>"
     },
     {
@@ -104,15 +104,13 @@ var question = [
         option1: '<img alt="MyImage">image.gif</img>',
         option2: '<img href="image.gif" alt="MyImage">',
         option3: '<img src="image.gif" alt="MyImage">',
-        option4: '<image src="image.gif" alt="MyImage">',
         correctOption: '<img src="image.gif" alt="MyImage">'
     },
     {
         question: 'What is the correct HTML for making a checkbox?',
         option1: '<iput type="check">',
-        option2: '<check>',
-        option3: '<checkbox>',
-        option4: '<input type="checkbox">',
+        option2: '<checkbox>',
+        option3: '<input type="checkbox">',
         correctOption: '<input type="checkbox">'
     },
     {
@@ -120,15 +118,13 @@ var question = [
         option1: '<input type="textfield">',
         option2: '<input type="text">',
         option3: '<textfield>',
-        option4: '<textinput type="textfield">',
         correctOption: '<input type="text">'
     },
     {
         question: 'What is the correct HTML for making a drop-down list?',
         option1: '<input type="list">',
         option2: '<list>',
-        option3: '<input type="dropdown">',
-        option4: '<select>',
+        option3: '<select>',
         correctOption: '<select>'
     },
     {
@@ -164,6 +160,7 @@ var quesNum;
 var endFlag = false;
 
 function next(){
+    time.innerText = `0${min}:${sec}`;
     var optionData = question[index];
 
     for(var i = 0; i < ans.length; i++){
@@ -182,6 +179,7 @@ function next(){
     quesNum = index + 1;
 
     if(index > question.length - 1){
+        
         var totalScore = ((score / question.length)* 100)
         quiz.className = "display";
         if(!endFlag){
@@ -210,8 +208,8 @@ function next(){
                     <h1>Correct Question : <span class="light">${score}</span></h1>
                 </div>
                 <div class="score-con">
-                    <div class="score">Your score:</div>
-                    <div class="number">${totalScore}%</div>
+                <div class="score">Your score:</div>
+                <div class="number">${totalScore}%</div>
                 </div>`;
                 finalResult.style.display = "flex"
                 finalResult.innerHTML = resultData;
@@ -219,12 +217,16 @@ function next(){
         }
     }
     else{
+        min = 1;
+        sec = 59;
+        time.innerText = `0${min}:${sec}`;
+        clearInterval(timer)
+        startTimer()
         ques.innerHTML = `<span style="font-size:0.9em">${quesNum}:</span> ${optionData.question}`;
         option1.innerText = optionData.option1;
         option2.innerText = optionData.option2;
         option3.innerText = optionData.option3;
     }
-    // time.innerText = "1:59";
     index++
 }
 
@@ -234,11 +236,10 @@ function enableBtn(){
     but.disabled = false
 }
 
-
-time.innerText = `0${min}:${sec}`;
-var timer = setInterval(function(){
+var timer;
+function startTimer(){
+    timer = setInterval(function(){
     sec--
-            
     if(quesNum - 1 > question.length){
         clearInterval(timer)
         next()
@@ -258,8 +259,48 @@ var timer = setInterval(function(){
     if(sec < 10){
         time.innerText = `0${min}:0${sec}`
     }
-    else(
+    else{
         time.innerText = `0${min}:${sec}`
-    )
+    }
 }, 1000)
+}
 
+document.addEventListener("keydown", showResult);
+
+function showResult() {
+  clearInterval(timer);
+
+  var totalScore = ((score / question.length) * 100);
+  quiz.className = "display";
+  if (!endFlag) {
+    if (totalScore >= 70) {
+      var pass = `Congratulations, You have passed the exam`;
+      var resultData = `<div class="greets">${pass}</div>
+            <div class="border"></div>
+            <div class="ques-res">
+                <h1>Total Question : <span class="light">${question.length}</span></h1>
+                <h1>Correct Question : <span class="light">${score}</span></h1>
+            </div>
+            <div class="score-con">
+                <div class="score">Your score:</div>
+                <div class="number">${totalScore}%</div>
+            </div>`;
+      finalResult.style.display = "flex";
+      finalResult.innerHTML = resultData;
+    } else {
+      var end = `Try harder, You have failed the exam`;
+      var resultData = `<div class="greets">${end}</div>
+            <div class="border"></div>
+            <div class="ques-res">
+                <h1>Total Question : <span class="light">${question.length}</span></h1>
+                <h1>Correct Question : <span class="light">${score}</span></h1>
+            </div>
+            <div class="score-con">
+                <div class="score">Your score:</div>
+                <div class="number">${totalScore}%</div>
+            </div>`;
+      finalResult.style.display = "flex";
+      finalResult.innerHTML = resultData;
+    }
+  }
+}
