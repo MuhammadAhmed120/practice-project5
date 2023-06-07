@@ -4,218 +4,244 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Polish your Skills - Quiz Website</title>
+    <title>Login your account</title>
 </head>
 <body>
     <style>
         *{
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            box-sizing: border-box;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body{
-            margin: 0;
-            padding: 0;
+            background-color: #f3f2f0;
         }
 
-        .nav{
-            display: flex;
-            justify-content: space-between;
-            padding: 0 4%;
-            align-items: center;
-            height: 60px;
-            background-color: #f4f4f4;
-            box-shadow: 1px 2px 3px #9d9d9d;
-        }
-
-        .head{
-            text-align: center;
-            font-size: 1.7em;
-            color: #252525;
-        }
-
-        .name{
-            font-size: 2em;
-            color: #292929;
-        }
-
-        .login>a{
-            text-decoration: none;
-            font-size: 1.5em;
-            color: #292929;
-        }
-
-        /* .course{
-            margin-bottom: 100px;
-        } */
-
-        .lang{
-            background-color: #f0f0f0;
-            width: 70%;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            padding: 1%;
-            justify-content: space-around;
-            gap: 1.5rem;
-        }
-
-        .html{
-            box-sizing: border-box;
+        .login, .signup{
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-            gap: 2rem;
             background-color: #fff;
-            text-align: center;
-            color: #292929;
-            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-            padding: 0 1% 1% 1%;
-            height: 350px;
+            width: 20%;
+            height: 450px;
+            margin: 0 auto;
+            box-shadow: 1px 1px 3px #d4d4d4;
+            position: relative;
+            top: 150px;
+            justify-content: space-evenly;
+            align-items: center;
         }
 
-        #name{
-            border-bottom: 1px solid #252525;
-            height: 150px;
-            font-size: 2em;
-        }
-
-        #name>h2{
+        .sign{
             margin-bottom: 0;
         }
 
-        #name>p{
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            font-size: 1rem;
-            margin-bottom: 0;
-            font-weight: lighter;
-        }
-
-        .key{
-            width: 50%;
-        }
-
-        .key>p{
-            margin-bottom: 5px;
-        }
-
-        .key-inp{
-            font-size: 1.4em;
-            width: 100%;
-            text-align: center;
-            padding: 5px 5px;
-        }
-
-        .start-but{
-            background: transparent;
-            font-size: 1.2em;
-            color: #3e3e3e;
-            border: 1px solid #292929;
-            padding: 8px 15px;
-            cursor: pointer;
-        }
-
-        .start-but:hover{
-            background-color: #2f2f2f;
-            color: #f0f0f0;
+        .credentials{
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-left: -15%;
         }
         
-        .start-but:active{
+        .credentials>label{
+            display: flex;
+            flex-direction: column;
+            font-size: 1.2em;
+            cursor: pointer;
+            gap: 5px;
+        }
+        
+        .email-inp, .pass-inp{
+            font-size: 22px;
+            padding: 3% 5% 3% 5%;
+            width: 110%;
+        }
+
+        .log-but{
+            font-size: 20px;
+            padding: 10px 15px;
+            background-color: #0a66c2;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+
+        .log-but:hover{
+            background-color: #1183f6;
+        }
+
+        .log-but:active{
             opacity: 0.8;
         }
 
-        footer{
-            margin-top: 200px;
+        .or{
+            margin-top: 0;
             position: relative;
-            bottom: 0;
-            width: 100%;
-            background-color: #292929;
-            color: #f0f0f0;
-            height: 60px;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            width: 80%;
+            height: 40px;
+        }
+        
+        .or>p{
+            font-size: 1.6em;
+            font-weight: lighter;
+            color: #464646
+        }
+        
+        .or::before{
+            content: '';
+            position: absolute;
+            height: 2px;
+            width: 43%;
+            background: rgba(179, 179, 179, 0.8);
+            left: 0px;
+            top: 20px;
+        }
+
+        .or::after{
+            content: '';
+            position: absolute;
+            height: 2px;
+            width: 43%;
+            background: rgba(179, 179, 179, 0.8);
+            right: 0px;
+            top: 20px;
+        }
+
+        .already{
+            background: transparent;
+            color: #1183f6;
+            text-decoration: underline;
+            border: none;
             cursor: pointer;
         }
-
-        .cc{
-            font-size: 1.4em;
+        
+        .already:hover{
+            color: #4fa6fd;
         }
 
-        @media (max-width: 821px) {
-            .html{
-                width: 100%;
-            }
+        .already:active{
+            opacity: 0.8;
         }
 
-        @media (min-width: 1024px) {
-            .html{
-                width: 45%;
-            }
+        .dis{
+            display: none;
         }
     </style>
-    
-    <div class="nav" id="#top">
-        <div class="name">Quizzer</div>
-        <div class="login"><a href="login.html">Login</a></div>
-    </div>
 
-    <div class="course">
-        <div class="head"><h1>Which skill do you want to Polish</h1></div>
-        <div class="lang">
-
-            <div class="html">
-                <div id="name">
-                    <h2>HTML:</h2>
-                    <p>Quiz of HTML with 20 Questions.</p>
-                </div>
-                <div class="key">
-                    <p>Enter KEY</p>
-                    <input class="key-inp html1" type="text" name="" id="" maxlength="7">
-                </div>
-                <div class="start">
-                    <button onclick="startQuiz('html')" class="start-but">START</button>
-                </div>
-            </div>
-
-            <div class="html">
-                <div id="name">
-                    <h2>CSS:</h2>
-                    <p>Quiz of CSS with 20 Questions.</p>
-                </div>
-                <div class="key">
-                    <p>Enter KEY</p>
-                    <input class="key-inp css" type="text" name="" id="" maxlength="7">
-                </div>
-                <div class="start">
-                    <button onclick="startQuiz('css')" class="start-but">START</button>
-                </div>
-            </div>
-
-            <div class="html">
-                <div id="name">
-                    <h2>JavaScript:</h2>
-                    <p>Quiz of Javascript with 20 Questions.</p>
-                </div>
-                <div class="key">
-                    <p>Enter KEY</p>
-                    <input class="key-inp js" type="text" name="" id="" maxlength="7">
-                </div>
-                <div class="start">
-                    <button onclick="startQuiz('js')" class="start-but">START</button>
-                </div>
-            </div>
-
+    <div class="login">
+        <h2 class="sign">Sign in</h2>
+        <div class="credentials">
+            <label class="email">
+                Email:
+                <input class="email-inp" type="text" name="" id="loginEmail" placeholder="Email">
+            </label>
+            <label class="pass">
+                Password:
+                <input class="pass-inp" type="password" name="" id="loginPass" placeholder="Password">
+            </label>
         </div>
+        <button class="log-but" onclick="loginAccount()">Sign in</button>
+        <div class="or">
+            <p>or</p>
+        </div>        
+        <button class="already" onclick="create()">Create an Account</button>
     </div>
 
+    <div class="signup dis">
+        <h2 class="sign">Create your account</h2>
+        <div class="credentials">
+            <label class="email">
+                Email:
+                <input class="email-inp" type="text" name="" id="createEmailInp" placeholder="Enter your email">
+            </label>
+            <label class="pass">
+                Password:
+                <input class="pass-inp" type="password" name="" id="createPassInp" placeholder="Enter your password">
+            </label>
+        </div>
+        <button class="log-but" onclick="createAccount()">Create account</button>
+        <div class="or">
+            <p>or</p>
+        </div>
+        <button class="already" onclick="signin()">Already a user? Login</button>
+    </div>
 
-    <footer id="#top">
-        <div class="cc">This website is made by Quizzer.</div>
-    </footer>
+    <script>
+        var pageTitle = document.childNodes[1].childNodes[0].childNodes[7];
 
+        var loginCon = document.querySelector(".login");
+        var createCon = document.querySelector(".signup");
 
-    <script src="i.js"></script>
+        var createEmail = document.querySelector('#createEmailInp');
+        var createPass = document.querySelector('#createPassInp');
+
+        function create(){
+            loginCon.style.display = "none";
+            createCon.style.display = "flex";
+            createEmail.focus();
+            pageTitle.innerHTML = "Create an account"
+        }  
+
+        function signin(){
+            createCon.style.display = "none";
+            loginCon.style.display = "flex";
+            pageTitle.innerHTML = "Login your account"
+        }
+
+        var userData = []
+        var getFromLS;
+
+        getFromLS = localStorage.getItem('userData');
+        // Checking If there is value in LS, assign it to userData
+        if (getFromLS) {
+            userData = JSON.parse(getFromLS);
+        }
+
+        function createAccount(){
+            userEmail = createEmail.value;
+            userPass = createPass.value;
+            
+            var pushUserData = {"userEmail" : userEmail, "userPass" : userPass}
+            userData.push(pushUserData);
+            
+            localStorage.setItem('userData', JSON.stringify(userData));
+            getFromLS = localStorage.getItem('userData');
+            location.href = "home.html"
+        }
+
+        var collectedData = []; 
+        for(var key in userData){
+            for(var key2 in userData[key]){
+                var value = userData[key][key2]; 
+                collectedData.push(value);
+            }
+        }
+
+        var loginEmail = document.querySelector('#loginEmail')
+        var loginPass = document.querySelector('#loginPass')
+
+        loginEmail.focus()
+
+        function loginAccount(){
+            var userLogEmail = loginEmail.value;
+            var userLogPass = loginPass.value;
+
+            // Works but not how it should
+            if(collectedData.includes(userLogEmail) && collectedData.includes(userLogPass)){
+                window.location = "home.html";
+            }
+            else{
+                loginPass.value = "";
+                loginPass.focus()
+                loginEmail.value = "";
+                loginEmail.focus()
+            }
+        }
+
+        // Since the if condition uses includes method it doesnt matter if you type the email in both email and password it will execute the if function. 
+    </script>
 </body>
 </html>
