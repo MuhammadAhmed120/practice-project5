@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polish your Skills - Quiz Website</title>
+</head>
+<body>
+    <style>
+        *{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            box-sizing: border-box;
+        }
+        
+        body{
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav{
+            display: flex;
+            justify-content: space-between;
+            padding: 0 4%;
+            align-items: center;
+            height: 60px;
+            background-color: #f4f4f4;
+            box-shadow: 1px 2px 3px #9d9d9d;
+        }
+
+        .head{
+            text-align: center;
+            font-size: 1.7em;
+            color: #252525;
+        }
+
+        .name{
+            font-size: 2em;
+            color: #292929;
+        }
+
+        .login>a{
+            text-decoration: none;
+            font-size: 1.5em;
+            color: #292929;
+        }
+
+        .lang{
+            background-color: #f0f0f0;
+            width: 70%;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 1%;
+            justify-content: space-around;
+            gap: 1.5rem;
+        }
+
+        .html{
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            gap: 2rem;
+            background-color: #fff;
+            text-align: center;
+            color: #292929;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            padding: 0 1% 1% 1%;
+            height: 350px;
+        }
+
+        #name{
+            border-bottom: 1px solid #252525;
+            height: 150px;
+            font-size: 2em;
+        }
+
+        #name>h2{
+            margin-bottom: 0;
+        }
+
+        #name>p{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 1rem;
+            margin-bottom: 0;
+            font-weight: lighter;
+        }
+
+        .key{
+            width: 50%;
+        }
+
+        .key>p{
+            margin-bottom: 5px;
+        }
+
+        .key-inp{
+            font-size: 1.4em;
+            width: 100%;
+            text-align: center;
+            padding: 5px 5px;
+        }
+
+        .start-but{
+            background: transparent;
+            font-size: 1.2em;
+            color: #3e3e3e;
+            border: 1px solid #292929;
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        .start-but:hover{
+            background-color: #2f2f2f;
+            color: #f0f0f0;
+        }
+        
+        .start-but:active{
+            opacity: 0.8;
+        }
+
+        footer{
+            margin-top: 200px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            background-color: #292929;
+            color: #f0f0f0;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .cc{
+            font-size: 1.4em;
+        }
+
+        @media (max-width: 821px) {
+            .html{
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .html{
+                width: 45%;
+            }
+        }
+    </style>
+    
+    <div class="nav" id="#top">
+        <div class="name">Quizzer</div>
+        <div class="login"><a href="index.html">Login</a></div>
+    </div>
+
+    <div class="course">
+        <div class="head"><h1>Which skill do you want to Polish</h1></div>
+        <div class="lang">
+
+            <div class="html">
+                <div id="name">
+                    <h2>HTML:</h2>
+                    <p>Quiz of HTML with 20 Questions.</p>
+                </div>
+                <div class="key">
+                    <p>Enter KEY</p>
+                    <input class="key-inp html1" type="text" name="" id="" maxlength="7">
+                </div>
+                <div class="start">
+                    <button onclick="startQuiz('html')" class="start-but">START</button>
+                </div>
+            </div>
+
+            <div class="html">
+                <div id="name">
+                    <h2>CSS:</h2>
+                    <p>Quiz of CSS with 20 Questions.</p>
+                </div>
+                <div class="key">
+                    <p>Enter KEY</p>
+                    <input class="key-inp css" type="text" name="" id="" maxlength="7">
+                </div>
+                <div class="start">
+                    <button onclick="startQuiz('css')" class="start-but">START</button>
+                </div>
+            </div>
+
+            <div class="html">
+                <div id="name">
+                    <h2>JavaScript:</h2>
+                    <p>Quiz of Javascript with 20 Questions.</p>
+                </div>
+                <div class="key">
+                    <p>Enter KEY</p>
+                    <input class="key-inp js" type="text" name="" id="" maxlength="7">
+                </div>
+                <div class="start">
+                    <button onclick="startQuiz('js')" class="start-but">START</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <footer id="#top">
+        <div class="cc">This website is made by Quizzer.</div>
+    </footer>
+
+
+    <script src="screenfull.js"></script>
+    <script src="your-script.js"></script>
+    <script>
+        var htmlInp = document.querySelector('.html1');
+        var cssInp = document.querySelector('.css');
+        var jsInp = document.querySelector('.js');
+
+        function startQuiz(userSelect){
+        var htmlKey = htmlInp.value 
+        var cssKey = cssInp.value 
+        var jsKey = jsInp.value 
+
+        if(userSelect === 'html'){
+            if((htmlKey.match(/^\s*$/)) || (htmlKey !== "html@23")){
+                htmlInp.focus()
+                htmlInp.value = "";
+            }
+            else{
+                htmlInp.value = "";
+                location.href = "quiz.html";
+            }
+        }
+
+        if(userSelect === 'css'){
+        if((cssKey.match(/^\s*$/)) || (cssKey !== "css@123")){
+            cssInp.focus()
+            cssInp.value = "";
+        }
+        else{
+            cssInp.value = "";
+            location.href = "quiz.html";
+        }
+        }
+
+        if(userSelect === 'js'){
+        if((jsKey.match(/^\s*$/)) || (jsKey !== "js@2022")){
+            jsInp.focus()
+            jsInp.value = "";
+        }
+        else{
+            jsInp.value = "";
+            window.open("quiz.html");
+        }
+        }
+        }
+
+        
+    </script>
+</body>
+</html>
